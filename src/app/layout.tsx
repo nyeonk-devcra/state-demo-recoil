@@ -7,8 +7,8 @@ import clsx from "clsx";
 import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
-  title: "devcra-nextjs-template",
-  description: "DevCra.com",
+  title: "Recoil",
+  description: "Recoil을 활용한 상태 관리",
 };
 
 export default function RootLayout({

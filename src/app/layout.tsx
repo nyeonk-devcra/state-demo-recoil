@@ -5,6 +5,7 @@ import "./globals.css";
 import { pretendardStd } from "@/components/fonts";
 import clsx from "clsx";
 import NextTopLoader from "nextjs-toploader";
+import RecoilProvider from "@/components/RecoilProvider";
 
 export const metadata: Metadata = {
   title: "Recoil",
@@ -35,8 +36,7 @@ export default function RootLayout({
           speed={200}
           shadow="0 0 10px #2299DD, 0 0 5px #2299DD"
         />
-
-        {children}
+        <RecoilProvider>{children}</RecoilProvider>
       </body>
     </html>
   );

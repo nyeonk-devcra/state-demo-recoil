@@ -1,19 +1,33 @@
 "use client";
 
-import { atom, useRecoilValue } from "recoil";
-
-// atom 선언
-export const counterState = atom({
-  key: "counterState",
-  default: 0,
-});
+import { useRecoilState } from "recoil";
+import { counterState } from "@/recoil/counterState";
 
 const Counter = () => {
-  const counter = useRecoilValue(counterState);
+  const [, setCount] = useRecoilState(counterState);
+
+  const increase = () => {
+    setCount((prevCount: number) => prevCount + 1);
+  };
+
+  const decrease = () => {
+    setCount((prevCount: number) => prevCount - 1);
+  };
 
   return (
-    <div className="flex flex-1 items-center justify-center h-full">
-      {counter}
+    <div className="flex items-center space-x-4">
+      <button
+        onClick={increase}
+        className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+      >
+        +
+      </button>
+      <button
+        onClick={decrease}
+        className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+      >
+        -
+      </button>
     </div>
   );
 };
